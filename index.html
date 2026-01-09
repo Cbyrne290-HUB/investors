@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C. BYRNE | VENTURE ARCHITECT</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { 
+                        sans: ['Space Grotesk', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace']
+                    },
+                    colors: {
+                        cyber: '#00f2ff',
+                        void: '#020408',
+                        panel: '#0a0d14',
+                        border: '#1a1f2e'
+                    }
+                }
+            }
+        }
+
+        // Tab Switching Logic for Ventures
+        function switchVenture(id) {
+            const contents = document.querySelectorAll('.venture-content');
+            const tabs = document.querySelectorAll('.venture-tab');
+            contents.forEach(c => c.classList.add('hidden'));
+            tabs.forEach(t => t.classList.remove('border-cyber', 'text-cyber'));
+            
+            document.getElementById('venture-' + id).classList.remove('hidden');
+            document.getElementById('tab-' + id).classList.add('border-cyber', 'text-cyber');
+        }
+    </script>
+    <style>
+        body { background-color: #020408; color: #94a3b8; }
+        .glass-panel { 
+            background: rgba(10, 13, 20, 0.8);
+            border: 1px solid #1a1f2e;
+            backdrop-filter: blur(20px);
+        }
+        .glow-hover:hover {
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.15);
+            border-color: #00f2ff;
+        }
+        .tech-grid {
+            background-image: linear-gradient(rgba(0, 242, 255, 0.05) 1px, transparent 1px), 
+                              linear-gradient(90deg, rgba(0, 242, 255, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+    </style>
+</head>
+<body class="antialiased tech-grid">
+
+    <nav class="fixed w-full z-50 top-0 border-b border-border bg-void/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto flex justify-between items-center px-8 py-4">
+            <div class="flex items-center space-x-4">
+                <div class="w-2 h-2 bg-cyber animate-pulse rounded-full"></div>
+                <span class="font-mono text-white tracking-[0.3em] font-bold">BYRNE_SYSTEMS_v2.6</span>
+            </div>
+            <div class="hidden md:flex space-x-10 font-mono text-xs uppercase tracking-widest">
+                <a href="#about" class="hover:text-cyber transition">01. Identity</a>
+                <a href="#ventures" class="hover:text-cyber transition">02. Ventures</a>
+                <a href="#freelance" class="hover:text-cyber transition">03. Execution</a>
+            </div>
+            <a href="#contact" class="border border-cyber/50 text-cyber px-6 py-2 rounded-sm text-xs font-mono hover:bg-cyber hover:text-void transition">INITIATE_CONTACT</a>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-8">
+        
+        <section id="about" class="pt-40 pb-32">
+            <div class="max-w-4xl">
+                <h1 class="text-6xl md:text-8xl font-bold text-white mb-8 tracking-tighter">
+                    STRATEGIC <br><span class="text-cyber italic font-light">CAPITAL & CODE.</span>
+                </h1>
+                <div class="font-mono text-sm space-y-2 opacity-60 mb-10">
+                    <p>> LOCATING_CLIENT... SUCCESS</p>
+                    <p>> STATUS: OPERATIONAL / NO_BS_POLICY_ACTIVE</p>
+                    <p>> FOCUS: SCALABLE ARCHITECTURE & VENTURE EQUITY</p>
+                </div>
+                <p class="text-2xl text-slate-400 leading-relaxed max-w-2xl border-l-2 border-cyber pl-8">
+                    I build the systems others claim are impossible. I don't work for resumes; I work for results and equity.
+                </p>
+            </div>
+        </section>
+
+        <section id="ventures" class="py-20 border-t border-border">
+            <div class="mb-16">
+                <h2 class="font-mono text-cyber text-sm tracking-[0.5em] uppercase mb-4">Proprietary Pipeline</h2>
+                <h3 class="text-4xl font-bold text-white uppercase">Investment Opportunities</h3>
+            </div>
+
+            <div class="flex flex-wrap gap-4 mb-10 font-mono text-xs">
+                <button id="tab-1" onclick="switchVenture('1')" class="venture-tab px-6 py-3 glass-panel border-cyber text-cyber uppercase tracking-tighter">Project: AETHER</button>
+                <button id="tab-2" onclick="switchVenture('2')" class="venture-tab px-6 py-3 glass-panel uppercase tracking-tighter hover:text-cyber transition">Project: KINETIC</button>
+                <button id="tab-3" onclick="switchVenture('3')" class="venture-tab px-6 py-3 glass-panel uppercase tracking-tighter hover:text-cyber transition">Project: OBSIDIAN</button>
+                <button id="tab-4" onclick="switchVenture('4')" class="venture-tab px-6 py-3 glass-panel uppercase tracking-tighter hover:text-cyber transition">Project: NEXUS</button>
+            </div>
+
+            <div class="glass-panel p-1 w-full rounded-lg overflow-hidden">
+                
+                <div id="venture-1" class="venture-content p-10 grid md:grid-cols-2 gap-12 bg-panel">
+                    <div>
+                        <div class="bg-cyber/10 text-cyber font-mono text-[10px] px-3 py-1 inline-block mb-6 rounded-full">STATUS: PRE-SEED / PROTOYPE PHASE</div>
+                        <h4 class="text-4xl font-bold text-white mb-6 uppercase">AETHER: Decentralized Compute</h4>
+                        <p class="mb-8 text-lg">Next-gen infrastructure for distributed AI rendering. Solving the hardware bottleneck for small-scale developers.</p>
+                        
+                        <div class="grid grid-cols-2 gap-4 mb-10">
+                            <div class="p-4 bg-void border border-border">
+                                <span class="block font-mono text-[10px] uppercase text-gray-500">Target Raise</span>
+                                <span class="text-xl font-bold text-white">$450K</span>
+                            </div>
+                            <div class="p-4 bg-void border border-border">
+                                <span class="block font-mono text-[10px] uppercase text-gray-500">Equity Offered</span>
+                                <span class="text-xl font-bold text-white">12.5%</span>
+                            </div>
+                        </div>
+                        <a href="#contact" class="inline-block bg-white text-void font-bold px-8 py-4 uppercase tracking-tighter hover:bg-cyber transition">Unlock Full Data Pack</a>
+                    </div>
+                    <div class="bg-void border border-border p-8 flex flex-col justify-center">
+                        <h5 class="font-mono text-xs text-cyber mb-6 uppercase tracking-widest">Financial Trajectory</h5>
+                        <div class="h-40 flex items-end space-x-2">
+                            <div class="bg-border w-full h-[20%]"></div>
+                            <div class="bg-border w-full h-[35%]"></div>
+                            <div class="bg-cyber/40 w-full h-[60%] animate-pulse"></div>
+                            <div class="bg-cyber w-full h-[85%]"></div>
+                        </div>
+                        <p class="mt-6 text-xs font-mono text-gray-500 uppercase italic">NDA Required to view actual revenue projections</p>
+                    </div>
+                </div>
+
+                <div id="venture-2" class="venture-content hidden p-10 grid md:grid-cols-2 gap-12 bg-panel">
+                    <div>
+                        <div class="bg-yellow-500/10 text-yellow-500 font-mono text-[10px] px-3 py-1 inline-block mb-6 rounded-full">STATUS: MVP VALIDATED</div>
+                        <h4 class="text-4xl font-bold text-white mb-6 uppercase">KINETIC: B2B Automation</h4>
+                        <p class="mb-8 text-lg">Middleware for high-frequency logistical data processing. Currently in pilot with 3 firms.</p>
+                        
+                        <div class="grid grid-cols-2 gap-4 mb-10">
+                            <div class="p-4 bg-void border border-border">
+                                <span class="block font-mono text-[10px] uppercase text-gray-500">Target Raise</span>
+                                <span class="text-xl font-bold text-white">$200K</span>
+                            </div>
+                            <div class="p-4 bg-void border border-border">
+                                <span class="block font-mono text-[10px] uppercase text-gray-500">Equity Offered</span>
+                                <span class="text-xl font-bold text-white">8%</span>
+                            </div>
+                        </div>
+                        <a href="#contact" class="inline-block bg-white text-void font-bold px-8 py-4 uppercase tracking-tighter hover:bg-cyber transition">Request Pilot Data</a>
+                    </div>
+                    <div class="bg-void border border-border p-8 text-center flex items-center justify-center">
+                         <p class="font-mono text-xs uppercase tracking-widest text-gray-500">[ Visual Data Locked - NDA Required ]</p>
+                    </div>
+                </div>
+
+                <div id="venture-3" class="venture-content hidden p-10 bg-panel text-center">
+                    <p class="font-mono text-white italic">Project: OBSIDIAN - Deep Tech Details Locked. Contact for access.</p>
+                </div>
+                <div id="venture-4" class="venture-content hidden p-10 bg-panel text-center">
+                    <p class="font-mono text-white italic">Project: NEXUS - Stealth Mode Active. Contact for access.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="freelance" class="py-32 grid md:grid-cols-3 gap-8">
+            <div class="md:col-span-1">
+                <h3 class="text-4xl font-bold text-white uppercase mb-6 tracking-tighter leading-none">High-Precision <br>Execution.</h3>
+                <p class="text-slate-500 font-mono text-sm leading-relaxed mb-8">I don't bill by the hour. I bill by the impact. Currently accepting elite-level freelance contracts.</p>
+                <div class="space-y-4">
+                    <div class="flex items-center text-xs font-mono"><i class="fas fa-caret-right text-cyber mr-2"></i> CORE ARCHITECTURE</div>
+                    <div class="flex items-center text-xs font-mono"><i class="fas fa-caret-right text-cyber mr-2"></i> API SCALE SOLUTIONS</div>
+                    <div class="flex items-center text-xs font-mono"><i class="fas fa-caret-right text-cyber mr-2"></i> AI INTEGRATION STRATEGY</div>
+                </div>
+            </div>
+            <div class="md:col-span-2 grid md:grid-cols-2 gap-4">
+                <div class="glass-panel p-8 glow-hover group">
+                    <span class="text-cyber font-mono text-[10px] block mb-4 tracking-widest uppercase">Contract Type 01</span>
+                    <h4 class="text-xl font-bold text-white mb-2 uppercase">The Sprint</h4>
+                    <p class="text-sm opacity-60 mb-6">Go from zero to MVP in 14 days. Intense execution for early-stage founders.</p>
+                    <span class="text-white font-bold font-mono">$5,000+</span>
+                </div>
+                <div class="glass-panel p-8 glow-hover group">
+                    <span class="text-cyber font-mono text-[10px] block mb-4 tracking-widest uppercase">Contract Type 02</span>
+                    <h4 class="text-xl font-bold text-white mb-2 uppercase">The Architect</h4>
+                    <p class="text-sm opacity-60 mb-6">Long-term fractional CTO services and system scaling. Retainer-based.</p>
+                    <span class="text-white font-bold font-mono">$2,500 / mo</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-20 border-t border-border text-center">
+            <h2 class="text-6xl font-black text-white uppercase italic tracking-tighter mb-10">Stop Bullshitting. <br>Start Building.</h2>
+            <div class="flex flex-col md:flex-row justify-center items-center gap-10">
+                <a href="mailto:your@email.com" class="text-2xl font-bold text-cyber hover:underline font-mono">ENCRYPTED_EMAIL_INIT</a>
+                <a href="https://calendly.com" class="bg-cyber text-void px-10 py-5 font-black uppercase text-sm tracking-widest">Book Strategy Call</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="py-10 text-center opacity-30 font-mono text-[10px] uppercase tracking-widest">
+        SYSTEM_ORIGIN: BYRNE_LABS_2026 // NO_ENTRY_WITHOUT_CREDENTIALS
+    </footer>
+
+</body>
+</html>
